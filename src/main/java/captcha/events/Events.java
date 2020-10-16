@@ -95,11 +95,7 @@ public class Events implements Listener
 	
 	if(e.getCurrentItem() == null)
 	    p.kickPlayer(ChatColor.RED + "Failed the captcha. Try again.");
-	else if(e.getSlotType() != SlotType.CONTAINER)
-	    p.kickPlayer(ChatColor.RED + "Failed the captcha. Try again.");
-	else if(e.getClickedInventory() != e.getInventory())
-	    p.kickPlayer(ChatColor.RED + "Failed the captcha. Try again.");
-	else if(e.getCurrentItem().getType() != captcha.getCorrectItem())
+	else if(e.getSlotType() != SlotType.CONTAINER || e.getClickedInventory() != e.getInventory() || e.getCurrentItem().getType() != captcha.getCorrectItem())
 	    p.kickPlayer(ChatColor.RED + "Failed the captcha. Try again.");
 	else
 	{
